@@ -60,9 +60,15 @@ export default function PageClient() {
         </div>
         {/* 카드 리스트 */}
         <div className="flex-1 overflow-y-auto scrollbar-hide p-2.5">
-          {stores.map((store: Store) => 
+          {
+          stores.length
+          ?
+          stores.map((store: Store) => 
             <Card store={store} onClick={() => setSelectedStore(store)} />  
-          )}
+          )
+          :
+          <div key={seletedCategory}>제휴가 없어요ㅠ</div>
+          }
         </div>
       </div>
     </div>
