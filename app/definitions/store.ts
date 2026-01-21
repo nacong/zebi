@@ -3,6 +3,7 @@ export type Store = {
   name: string;
   lat: number;
   lon: number;
+  url: string;
   partnerships: Partnership[];
 }
 
