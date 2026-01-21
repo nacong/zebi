@@ -5,13 +5,21 @@ import Image from "next/image";
 import KakaoMap from "./kakao-map";
 import { CATEGORY_LIST, CategoryType } from "@/app/constants/category";
 import zebi_logo from "@/public/logo.png";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Tag from "./tag";
 import Card from "./card";
 import { Store } from "../definitions/store";
 import { getStoresByCategory } from "../data/data";
+import { useSearchParams } from "next/navigation";
 
-export default function PageClient({ collegeId }: { collegeId: string }) {
+export default function PageClient() {
+  const params = useSearchParams()
+  const collegeId = params.get("collegeId");
+
+  if (!collegeId) {
+    return <></>
+  }
+    
   const [stores, setStores] = useState<Store[]>([]);
   const [seletedCategory, setSeletedCategory] = useState<CategoryType>(CategoryType.KOREAN);
   const [selectedStore, setSelectedStore] = useState<Store | null>(null);

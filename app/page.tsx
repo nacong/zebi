@@ -1,15 +1,11 @@
-'use client'
- 
-import { useParams, useSearchParams } from 'next/navigation'
 import StoresClient from './ui/page-client';
+import { Suspense } from 'react';
 
 export default function StoresPage() {
-  const params = useSearchParams()
-  const collegeId = params.get("collegeId");
-
-  if (!collegeId) {
-    return <></>
-  }
   
-  return <StoresClient collegeId={collegeId} />;
+  return (
+    <Suspense>
+      <StoresClient />
+    </Suspense>
+  );
 }
