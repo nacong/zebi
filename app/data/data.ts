@@ -16,7 +16,7 @@ export async function getStoresByCategory(
       s.name,
       s.lat,
       s.lon,
-      s.url
+      s.url,
       json_agg(
         json_build_object(
           'council_name', u.name,
