@@ -1,12 +1,15 @@
-import KakaoMap from "./ui/kakao-map";
+'use client'
+ 
+import { useParams, useSearchParams } from 'next/navigation'
+import StoresClient from './ui/page-client';
 
-export default function Home() {
-  return (
-    <div className="flex flex-col h-screen w-screen">
-      <div className="grow-1">
-        <KakaoMap />
-      </div>
-      <div className="grow-2 bg-green-400" />
-    </div>
-  );
+export default function StoresPage() {
+  const params = useSearchParams()
+  const collegeId = params.get("collegeId");
+
+  if (!collegeId) {
+    return <></>
+  }
+  
+  return <StoresClient collegeId={collegeId} />;
 }
