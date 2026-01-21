@@ -25,7 +25,7 @@ export default function Tag({
       <p
         className={`text-[14px] ${
           isSelected
-            ? "text-[#232955] font-semibold"
+            ? "text-[#232955] font-bold"
             : "text-[#656C9D] font-medium"
         }`}
       >
