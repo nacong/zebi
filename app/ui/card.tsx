@@ -36,7 +36,7 @@ export default function Card({ store, onClick }: { store: Store, onClick: () => 
                     {detail.condition}
                   </p>
                 )}
-                <p className="text-lg font-bold text-[#1F2A5A]">
+                <p className="text-lg font-bold text-[#FF6B6B]">
                   {detail.benefit}
                 </p>
               </div>
