@@ -64,7 +64,7 @@ export default function PageClient() {
           stores.length
           ?
           stores.map((store: Store) => 
-            <Card store={store} onClick={() => setSelectedStore(store)} />  
+            <Card key={store.id} store={store} onClick={() => setSelectedStore(store)} />  
           )
           :
           <div key={seletedCategory}>제휴가 없어요ㅠ</div>
