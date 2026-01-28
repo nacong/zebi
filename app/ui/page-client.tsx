@@ -59,17 +59,21 @@ export default function PageClient() {
           </div>
         </div>
         {/* 카드 리스트 */}
-        <div className="flex-1 overflow-y-auto scrollbar-hide p-2.5">
-          {
+        {
           stores.length
           ?
-          stores.map((store: Store) => 
-            <Card key={store.id} store={store} onClick={() => setSelectedStore(store)} />  
-          )
+          <div className="flex-1 overflow-y-auto scrollbar-hide p-2.5">
+            {
+              stores.map((store: Store) => 
+              <Card key={store.id} store={store} onClick={() => setSelectedStore(store)} />  
+            )
+            }
+          </div>
           :
-          <div key={seletedCategory}>제휴가 없어요ㅠ</div>
-          }
-        </div>
+          <div className="flex flex-col items-center py-4">
+            <div key={seletedCategory} className="text-[#232955]">제휴가 없어요ㅠ</div>
+          </div>
+        }
       </div>
     </div>
   );
