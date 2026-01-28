@@ -1,4 +1,4 @@
-import { Store } from "../definitions/store"
+import { Store } from "../definitions/definition"
 import Pressable from "./pressable"
 
 export default function Card({ store, onClick }: { store: Store, onClick: () => void }) {

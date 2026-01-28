@@ -2,7 +2,7 @@
 
 import postgres from 'postgres';
 import { CategoryType } from '../constants/category';
-import { Store } from '../definitions/store';
+import { Store } from '../definitions/definition';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 

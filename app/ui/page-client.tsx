@@ -8,7 +8,7 @@ import zebi_logo from "@/public/logo.png";
 import { Suspense, useEffect, useState } from "react";
 import Tag from "./tag";
 import Card from "./card";
-import { Store } from "../definitions/store";
+import { Store } from "../definitions/definition";
 import { getStoresByCategory } from "../data/data";
 import { useSearchParams } from "next/navigation";
 

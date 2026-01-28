@@ -17,3 +17,8 @@ export type Detail = {
   condition?: string;
   benefit: string;
 }
+
+export type College = {
+  id: string;
+  name: string;
+}

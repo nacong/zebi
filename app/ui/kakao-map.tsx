@@ -3,7 +3,7 @@
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
 import useKakaoLoader from '../hooks/use-kakao-loader';
 import { MAP_CENTER } from '../constants/map';
-import { Store } from '../definitions/store';
+import { Store } from '../definitions/definition';
 
 export default function KakaoMap({ center = MAP_CENTER, pins }: { center?: { lat: number, lng: number }, pins: Store[] }) {
   useKakaoLoader();
