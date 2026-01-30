@@ -17,27 +17,35 @@ export async function getStoresByCategory(
       s.lat,
       s.lon,
       s.url,
-      json_agg(
-        json_build_object(
-          'council_name', u.name,
-          'partnershipDetails', json_build_array(
-            json_build_object(
-              'emoji', p.emoji,
-              'condition', p.condition,
-              'benefit', p.benefit
-            )
+      COALESCE(
+        json_agg(
+          json_build_object(
+            'council_name', council_name,
+            'partnershipDetails', partnership_details
           )
-        )
-      ) FILTER (WHERE p.id IS NOT NULL) as partnerships
+        ) FILTER (WHERE council_name IS NOT NULL),
+        '[]'
+      ) AS partnerships
     FROM stores s
-    LEFT JOIN partnerships p ON s.id = p.store_id AND p.college_id = ${collegeId}
-    LEFT JOIN users u ON p.college_id = u.id
+    LEFT JOIN (
+      SELECT
+        p.store_id,
+        u.name AS council_name,
+        json_agg(
+          json_build_object(
+            'emoji', p.emoji,
+            'condition', p.condition,
+            'benefit', p.benefit
+          )
+        ) AS partnership_details
+      FROM partnerships p
+      JOIN users u ON p.college_id = u.id
+      WHERE p.college_id = ${collegeId}
+      GROUP BY p.store_id, u.name
+    ) grouped_p ON s.id = grouped_p.store_id
     WHERE s.category = ${category}
-    GROUP BY s.id, s.name, s.lat, s.lon
+    GROUP BY s.id, s.name, s.lat, s.lon, s.url;
   `;
 
-  return rows.map(row => ({
-    ...row,
-    partnerships: row.partnerships || []
-  }));
+  return rows;
 }
