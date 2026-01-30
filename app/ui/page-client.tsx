@@ -5,14 +5,15 @@ import Image from "next/image";
 import KakaoMap from "./kakao-map";
 import { CATEGORY_LIST, CategoryType } from "@/app/constants/category";
 import zebi_logo from "@/public/logo.png";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Tag from "./tag";
 import Card from "./card";
 import { Store } from "../definitions/definition";
 import { getStoresByCategory } from "../data/data";
 import { useSearchParams } from "next/navigation";
+import Pressable from "./pressable";
 
-export default function PageClient() {
+export default function Page() {
   const params = useSearchParams()
   const collegeId = params.get("collegeId");
 
@@ -46,7 +47,14 @@ export default function PageClient() {
       <div className="flex-2 bg-white flex flex-col overflow-hidden">
         {/* 카테고리 */}
         <div className="flex flex-row pl-2 py-1 gap-1 items-center border-b border-b-[#F3F4F6] shrink-0">
-          <Image src={zebi_logo} alt="제비 로고" width={38} />
+          <Pressable 
+            onClick={() => window.ReactNativeWebView?.postMessage(
+              JSON.stringify({ type: "choose-college", payload: null })
+            )}
+            className="flex items-center justify-between"
+          >
+            <Image src={zebi_logo} alt="제비 로고" width={38} />
+          </Pressable>
           <div className="flex flex-row gap-1 overflow-x-auto scrollbar-hide">
             {Object.values(CATEGORY_LIST).map((category) => (
               <Tag
