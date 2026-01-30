@@ -27,7 +27,7 @@ export default function Card({ store, onClick }: { store: Store, onClick: () => 
           {/* 혜택 목록 */}
           {partnership.partnershipDetails.map((detail, detailIdx) => (
             <div key={detailIdx} className="flex items-center gap-3 px-2 py-1">
-              <span className="text-3xl" style={{ fontFamily: "Tossface" }}>
+              <span className="text-2xl" style={{ fontFamily: "Tossface" }}>
                 {detail.emoji}
               </span>
               <div>
