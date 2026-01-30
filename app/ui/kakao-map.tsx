@@ -4,6 +4,7 @@ import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
 import useKakaoLoader from '../hooks/use-kakao-loader';
 import { MAP_CENTER } from '../constants/map';
 import { Store } from '../definitions/definition';
+import React from 'react';
 
 export default function KakaoMap({ center = MAP_CENTER, pins }: { center?: { lat: number, lng: number }, pins: Store[] }) {
   useKakaoLoader();
@@ -12,12 +13,11 @@ export default function KakaoMap({ center = MAP_CENTER, pins }: { center?: { lat
     <Map
       center={center}
       isPanto={true}
-      
       style={{ width: "100%", height: "100%" }}
       level={5}
     >
       {pins.map((pin: Store) => 
-        <>
+        <React.Fragment key={pin.id}>
           {/* 마커 이미지 */}
           <MapMarker 
             position={{ lat: pin.lat, lng: pin.lon }}
@@ -49,7 +49,7 @@ export default function KakaoMap({ center = MAP_CENTER, pins }: { center?: { lat
               {pin.name}
             </p>
           </CustomOverlayMap>
-        </>
+        </React.Fragment>
       )}
     </Map>
   );
