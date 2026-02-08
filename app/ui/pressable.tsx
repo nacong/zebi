@@ -23,8 +23,7 @@ export default function Pressable({
         cursor-pointer
         select-none
         touch-manipulation
-        transition-[transform,background-color] duration-100
-        active:scale-[0.97]
+        transition-[transform,background-color] duration-300
         active:bg-[#E5E7EB]
         ${className}`}
       style={{
