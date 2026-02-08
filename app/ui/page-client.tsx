@@ -73,7 +73,16 @@ export default function Page() {
           <div className="flex-1 overflow-y-auto scrollbar-hide p-2.5">
             {
               stores.map((store: Store) => 
-              <Card key={store.id} store={store} onClick={() => setSelectedStore(store)} />  
+                <div key={store.id} className="relative">
+                  <Card store={store} onClick={() => setSelectedStore(store)} />  
+                  <div 
+                    onClick={() => window.ReactNativeWebView?.postMessage(
+                        JSON.stringify({ type: "go-to-menu", payload: { url: store.url } })
+                      )}
+                    className="absolute right-2 top-1 px-2 py-1 rounded-md bg-[#E6ECFF] text-sm text-[#2E3A8C] active:opacity-70 cursor-pointer">
+                    메뉴 보기
+                  </div>
+                </div>
             )
             }
           </div>

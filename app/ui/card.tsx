@@ -7,22 +7,12 @@ export default function Card({ store, onClick }: { store: Store, onClick: () => 
       onClick={onClick}
       className="
         p-2.5
-        flex flex-col gap-1.5
+        flex flex-col text-left gap-1.5
         rounded-xl
       "
     >
       {/* 상단 */}
-      <Pressable 
-        onClick={() => window.ReactNativeWebView?.postMessage(
-          JSON.stringify({ type: "go-to-menu", payload: { url: store.url } })
-        )}
-        className="flex items-center justify-between"
-      >
-        <h2 className="text-lg font-bold text-[#232955]">{store.name}</h2>
-        <div className="px-2 py-1 rounded-md bg-[#E6ECFF] text-sm text-[#2E3A8C]">
-          메뉴 보기
-        </div>
-      </Pressable>
+      <h2 className="text-lg font-bold text-[#232955]">{store.name}</h2>
 
       {/* 단과대별 제휴 혜택 */}
       {store.partnerships.map((partnership, idx) => (
