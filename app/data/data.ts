@@ -27,7 +27,7 @@ export async function getStoresByCategory(
         '[]'
       ) AS partnerships
     FROM stores s
-    LEFT JOIN (
+    JOIN (
       SELECT
         p.store_id,
         u.name AS council_name,
