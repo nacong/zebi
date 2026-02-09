@@ -53,7 +53,7 @@ export default function Page() {
             )}
             className="flex items-center justify-between"
           >
-            <Image src={zebi_logo} alt="제비 로고" width={38} />
+            <Image src={zebi_logo} alt="제비 로고" width={44} />
           </Pressable>
           <div className="flex flex-row gap-1 overflow-x-auto scrollbar-hide">
             {Object.values(CATEGORY_LIST).map((category) => (
