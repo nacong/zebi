@@ -9,6 +9,7 @@ export default function Card({ store, onClick }: { store: Store, onClick: () => 
         p-2.5
         flex flex-col text-left gap-1.5
         rounded-xl
+        mb-2
       "
     >
       {/* 상단 */}
