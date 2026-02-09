@@ -79,7 +79,7 @@ export default function Page() {
                     onClick={() => window.ReactNativeWebView?.postMessage(
                         JSON.stringify({ type: "go-to-menu", payload: { url: store.url } })
                       )}
-                    className="absolute right-2 top-1 px-2 py-1 rounded-md bg-[#E6ECFF] text-sm text-[#2E3A8C] active:opacity-70 cursor-pointer">
+                    className="absolute right-2.5 top-2.5 px-2 py-1 rounded-md bg-[#E6ECFF] text-sm text-[#2E3A8C] active:opacity-70 cursor-pointer">
                     메뉴 보기
                   </div>
                 </div>
