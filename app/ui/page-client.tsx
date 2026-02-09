@@ -88,7 +88,7 @@ export default function Page() {
           </div>
           :
           <div className="flex flex-col items-center py-4">
-            <div key={seletedCategory} className="text-[#232955]">제휴가 없어요ㅠ</div>
+            <div key={seletedCategory} className="text-[#232955]" style={{ fontFamily: "Tossface" }}>등록된 제휴가 없어요 🥲</div>
           </div>
         }
       </div>
