@@ -1,0 +1,1 @@
+export const ALL_STUDENTS_COUNCIL_ID = '78b4edac-a720-4922-9323-77586705c81f';
